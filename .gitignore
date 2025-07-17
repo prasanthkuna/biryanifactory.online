@@ -1,0 +1,19 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Test files
+test-*.js
+*.test.js
+
+# Documentation files
+*.md
+!README.md
+
+# Other unnecessary files
+*.txt
+*.log
