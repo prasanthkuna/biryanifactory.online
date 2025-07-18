@@ -76,7 +76,7 @@ const menuData = {
             details: "Jumbo Biryanis + Lollipops + Starters",
             save: "Save ₹191 | Feeds 6-8",
             segment: "family"
-        }
+        },
     ],
     
     biryani: [
