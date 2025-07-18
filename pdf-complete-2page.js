@@ -316,7 +316,7 @@ function generateComplete2PagePDF() {
         <img src="${window.location.origin}/logo.jpg" class="logo-img" alt="Logo" onerror="this.style.display='none'">
         <h1>BIRYANI FACTORY</h1>
         <p class="tagline">Crafted with Precision | Delivered with Passion</p>
-        <p style="margin-top: 5px; color: #FFC107; font-weight: bold; font-size: 11pt;">RECEPTION - 9, KITCHEN - 8</p>
+        <p style="margin-top: 5px; color: #FFC107; font-weight: bold; font-size: 11pt;">RECEPTION - 9, KITCHEN - 8, WHATSAPP - 9573 264 441</p>
     </div>
     
     <!-- Page 1: Complete Menu -->
@@ -358,34 +358,62 @@ function generateComplete2PagePDF() {
             </div>
         </div>
         
-        <h2 class="page-title" style="margin-top: 10px;">YOUR BIRYANI BENEFITS</h2>
-        <p style="text-align: center; font-size: 7pt; color: #666; margin-bottom: 5px;">Nutritional • Health • Mental • Practical • Quality • Environmental</p>
+        <h2 class="page-title" style="margin-top: 10px;">NUTRITIONAL POWERHOUSE</h2>
+        <p style="text-align: center; font-size: 8pt; color: #00695C; margin-bottom: 5px; font-weight: bold;">PER STANDARD SERVING (150g Chicken + 150g Basmati Rice)</p>
         
-        <!-- Benefits Grid -->
+        <!-- Main Macros -->
+        <div class="items-grid-2" style="margin-bottom: 10px;">
+            <div class="item" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border: 2px solid #FFC107; text-align: center;">
+                <div style="font-size: 28pt; font-weight: 900; color: #FF5722; font-family: 'Orbitron', sans-serif;">485</div>
+                <div style="font-size: 10pt; color: #00695C; font-weight: bold;">CALORIES</div>
+                <div style="font-size: 7pt; color: #666;">Balanced energy for your day</div>
+                <div style="font-size: 8pt; color: #00695C; margin-top: 3px;">24% of daily intake</div>
+            </div>
+            <div class="item" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border: 2px solid #9c27b0; text-align: center;">
+                <div style="font-size: 28pt; font-weight: 900; color: #E91E63; font-family: 'Orbitron', sans-serif;">35</div>
+                <div style="font-size: 10pt; color: #00695C; font-weight: bold;">g PROTEIN</div>
+                <div style="font-size: 7pt; color: #666;">Builds lean muscle mass</div>
+                <div style="font-size: 8pt; color: #00695C; margin-top: 3px;">70% of daily needs</div>
+            </div>
+            <div class="item" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2196F3; text-align: center;">
+                <div style="font-size: 28pt; font-weight: 900; color: #2196F3; font-family: 'Orbitron', sans-serif;">52</div>
+                <div style="font-size: 10pt; color: #00695C; font-weight: bold;">g CARBS</div>
+                <div style="font-size: 7pt; color: #666;">Sustained energy release</div>
+                <div style="font-size: 8pt; color: #00695C; margin-top: 3px;">17% of daily intake</div>
+            </div>
+            <div class="item" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border: 2px solid #9c27b0; text-align: center;">
+                <div style="font-size: 28pt; font-weight: 900; color: #9c27b0; font-family: 'Orbitron', sans-serif;">12</div>
+                <div style="font-size: 10pt; color: #00695C; font-weight: bold;">g FATS</div>
+                <div style="font-size: 7pt; color: #666;">Healthy cooking oils</div>
+                <div style="font-size: 8pt; color: #00695C; margin-top: 3px;">18% of daily intake</div>
+            </div>
+        </div>
+        
+        <!-- Key Nutrients Grid -->
         <div class="benefits-grid">
             <div class="benefit-card">
-                <div class="benefit-number">Protein Power</div>
-                <div class="benefit-text">25-30g protein per serving (muscle building)</div>
+                <div class="benefit-number" style="font-size: 14pt;">15%</div>
+                <div class="benefit-text">Daily Iron<br>Prevents anemia</div>
             </div>
             <div class="benefit-card">
-                <div class="benefit-number">B-Vitamins</div>
-                <div class="benefit-text">B1, B2, B6 for energy metabolism</div>
+                <div class="benefit-number" style="font-size: 14pt;">20%</div>
+                <div class="benefit-text">Vitamin B12<br>Energy metabolism</div>
             </div>
             <div class="benefit-card">
-                <div class="benefit-number">Iron Rich</div>
-                <div class="benefit-text">15-20% daily iron needs (prevents anemia)</div>
+                <div class="benefit-number" style="font-size: 14pt;">25%</div>
+                <div class="benefit-text">Daily Zinc<br>Immunity boost</div>
             </div>
             <div class="benefit-card">
-                <div class="benefit-number">Zinc Boost</div>
-                <div class="benefit-text">Immune system support</div>
+                <div class="benefit-number" style="font-size: 14pt;">3g</div>
+                <div class="benefit-text">Dietary Fiber<br>Digestive health</div>
             </div>
             <div class="benefit-card">
-                <div class="benefit-number">Selenium</div>
-                <div class="benefit-text">Antioxidant properties</div>
+                <div class="benefit-number" style="font-size: 14pt;">35mcg</div>
+                <div class="benefit-text">Selenium<br>Antioxidant power</div>
             </div>
             <div class="benefit-card">
-                <div class="benefit-number">Complex Carbs</div>
-                <div class="benefit-text">Sustained energy release</div>
+                <div class="benefit-number" style="font-size: 14pt;">2.5mg</div>
+                <div class="benefit-text">Phosphorus<br>Bone health</div>
             </div>
 
             <div class="benefit-card">
@@ -413,55 +441,6 @@ function generateComplete2PagePDF() {
                 <div class="benefit-text">127 spices with antimicrobial properties</div>
             </div>
 
-            <div class="benefit-card">
-                <div class="benefit-number">Mood Enhancer</div>
-                <div class="benefit-text">Tryptophan boosts serotonin</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Stress Relief</div>
-                <div class="benefit-text">Comfort food reduces cortisol</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Memory Boost</div>
-                <div class="benefit-text">Aromatic spices improve cognitive function</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Social Bonding</div>
-                <div class="benefit-text">Sharing meals strengthens relationships</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Cultural Connection</div>
-                <div class="benefit-text">Traditional recipe preserves heritage</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Celebration Ready</div>
-                <div class="benefit-text">Perfect for all occasions</div>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-number">Time Saver</div>
-                <div class="benefit-text">No cooking, more family time</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Cost Effective</div>
-                <div class="benefit-text">Cheaper than cooking at home</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Portion Control</div>
-                <div class="benefit-text">Right-sized servings</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Variety</div>
-                <div class="benefit-text">50+ dishes to choose from</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Consistency</div>
-                <div class="benefit-text">Same taste every time</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Convenience</div>
-                <div class="benefit-text">Order from anywhere</div>
-            </div>
 
             <div class="benefit-card">
                 <div class="benefit-number">Fresh Daily</div>
@@ -488,55 +467,6 @@ function generateComplete2PagePDF() {
                 <div class="benefit-text">Hospital-grade cleanliness</div>
             </div>
 
-            <div class="benefit-card">
-                <div class="benefit-number">Local Sourcing</div>
-                <div class="benefit-text">Supporting 50+ local farmers</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Eco-Packaging</div>
-                <div class="benefit-text">Biodegradable containers</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Zero Waste</div>
-                <div class="benefit-text">Leftover donation program</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Employment</div>
-                <div class="benefit-text">100+ families supported</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Community Kitchen</div>
-                <div class="benefit-text">Festival donations</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">Carbon Neutral</div>
-                <div class="benefit-text">Delivery optimization</div>
-            </div>
-        </div>
-        
-        <!-- Compact Savings -->
-        <div class="section">
-            <h3 class="section-title">💰 YOUR SAVINGS</h3>
-            <div class="savings-grid">
-                <div class="savings-item">
-                    <span class="savings-amount">₹61</span> - Deploy & Dine
-                </div>
-                <div class="savings-item">
-                    <span class="savings-amount">₹81</span> - Interval Feast
-                </div>
-                <div class="savings-item">
-                    <span class="savings-amount">₹141</span> - Post-Movie Pack
-                </div>
-                <div class="savings-item">
-                    <span class="savings-amount">₹151</span> - Sober Special
-                </div>
-                <div class="savings-item">
-                    <span class="savings-amount">₹121</span> - Family Feast
-                </div>
-                <div class="savings-item">
-                    <span class="savings-amount">₹201</span> - Hackathon Pack
-                </div>
-            </div>
         </div>
         
         <!-- Why Order -->
@@ -578,7 +508,7 @@ function generateComplete2PagePDF() {
             <p style="margin-top: 5px; font-style: italic; font-size: 8pt;">
                 "From developer's midnight craving to CEO's board meeting - We deliver!"
             </p>
-            <p style="margin-top: 10px; color: #FFC107; font-weight: bold; font-size: 11pt;">RECEPTION - 9, KITCHEN - 8</p>
+            <p style="margin-top: 10px; color: #FFC107; font-weight: bold; font-size: 11pt;">RECEPTION - 9, KITCHEN - 8, WHATSAPP - 9573 264 441</p>
         </div>
     </div>
     
