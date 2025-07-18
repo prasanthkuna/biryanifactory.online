@@ -4,9 +4,9 @@ const menuData = {
         // Tech Combos
         {
             name: "Bug Fix Lunch",
-            price: "219",
+            price: "200",
             type: "combo",
-            details: "Irani Chicken Dum Biryani + Water",
+            details: "Irani Chicken Dum Biryani + Soft Drink",
             save: "Perfect for busy developers",
             segment: "tech"
         },
@@ -14,7 +14,7 @@ const menuData = {
             name: "Deploy & Dine",
             price: "399",
             type: "combo",
-            details: "Chicken 65 Biryani + Chicken 65 + Water",
+            details: "Chicken 65 Biryani + Chicken 65 + Soft Drink",
             save: "Save ₹61",
             segment: "tech"
         },
@@ -22,7 +22,7 @@ const menuData = {
             name: "Hackathon Pack",
             price: "1,299",
             type: "combo",
-            details: "Serves 5: Mixed Biryanis + Starters + Water",
+            details: "Serves 5: Mixed Biryanis + Starters + Soft Drink",
             save: "Save ₹201",
             segment: "tech"
         },
@@ -31,7 +31,7 @@ const menuData = {
             name: "Interval Feast",
             price: "359",
             type: "combo",
-            details: "Chicken Fry Piece Biryani + Chicken 65 + Water",
+            details: "Chicken Fry Piece Biryani + Chicken 65 + Soft Drink",
             save: "Save ₹81",
             segment: "movie"
         },
@@ -56,7 +56,7 @@ const menuData = {
             name: "Drunk Munchies Deluxe",
             price: "399",
             type: "combo",
-            details: "Chicken Mughlai Biryani + Pepper Chicken + Water",
+            details: "Chicken Mughlai Biryani + Pepper Chicken + Soft Drink",
             save: "Save ₹81",
             segment: "party"
         },
@@ -122,8 +122,8 @@ const menuData = {
         // Signature Rice
         { name: "Avakaya Muddapappu Annam", price: "160", type: "veg" },
         { name: "Ghee Sambar Rice", price: "160", type: "veg" },
-        { name: "Avakaya + Chicken Fry", price: "280", type: "non-veg" },
-        { name: "Ghee Sambar + Chicken Fry", price: "280", type: "non-veg" },
+        { name: "Avakaya pappu Annam+ Chicken Fry", price: "280", type: "non-veg" },
+        { name: "Ghee Sambar Rice+ Chicken Fry", price: "280", type: "non-veg" },
         { name: "Chicken 65 Sambar Rice", price: "280", type: "non-veg" },
         // Fried Rice
         { name: "Double Egg Fried Rice", price: "160", type: "non-veg" },
@@ -141,7 +141,10 @@ const menuData = {
         // Breads
         { name: "Phulka", price: "20", type: "veg" },
         { name: "Butter Phulka", price: "30", type: "veg" },
-        { name: "Water Bottle", price: "20", type: "veg" }
+        { name: "Soft Drink", price: "20", type: "veg" },
+        // Beverages
+        { name: "Water", price: "20", type: "veg" },
+        { name: "Soft Drink", price: "20", type: "veg" }
     ]
 };
 

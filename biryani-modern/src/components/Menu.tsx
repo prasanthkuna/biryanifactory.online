@@ -11,7 +11,7 @@ const menuData = {
       name: "Bug Fix Lunch",
       price: "219",
       type: "combo",
-      details: "Irani Chicken Dum Biryani + Water",
+      details: "Irani Chicken Dum Biryani + Soft Drink",
       save: "Perfect for busy developers",
       segment: "tech"
     },
@@ -19,7 +19,7 @@ const menuData = {
       name: "Deploy & Dine",
       price: "399",
       type: "combo",
-      details: "Chicken 65 Biryani + Chicken 65 + Water",
+      details: "Chicken 65 Biryani + Chicken 65 + Soft Drink",
       save: "Save ₹61",
       segment: "tech"
     },
@@ -27,7 +27,7 @@ const menuData = {
       name: "Hackathon Pack",
       price: "1,299",
       type: "combo",
-      details: "Serves 5: Mixed Biryanis + Starters + Water",
+      details: "Serves 5: Mixed Biryanis + Starters + Soft Drink",
       save: "Save ₹201",
       segment: "tech"
     },
@@ -35,7 +35,7 @@ const menuData = {
       name: "Interval Feast",
       price: "359",
       type: "combo",
-      details: "Chicken Fry Piece Biryani + Chicken 65 + Water",
+      details: "Chicken Fry Piece Biryani + Chicken 65 + Soft Drink",
       save: "Save ₹81",
       segment: "movie"
     },
