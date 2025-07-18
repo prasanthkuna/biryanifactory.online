@@ -9,7 +9,11 @@ function generateComplete2PagePDF() {
     // Build complete menu content
     let allCombos = '';
     if (menuData.combos) {
-        menuData.combos.forEach(combo => {
+        // Filter out any non-combo items that might have been added
+        const actualCombos = menuData.combos.filter(combo => 
+            combo.segment && ['tech', 'movie', 'party', 'family'].includes(combo.segment)
+        );
+        actualCombos.forEach(combo => {
             allCombos += `
                 <div class="item combo-item">
                     <div class="item-header">
@@ -120,6 +124,19 @@ function generateComplete2PagePDF() {
             position: relative;
         }
         
+        .page-info {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 10pt;
+            color: #FF5722;
+            font-weight: bold;
+            background: #FFC107;
+            padding: 5px 12px;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
         .page-1 {
             page-break-after: always;
         }
@@ -223,30 +240,34 @@ function generateComplete2PagePDF() {
         /* Page 2 specific */
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-bottom: 10px;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 4px;
+            margin-bottom: 5px;
+            font-size: 6pt;
         }
         
         .benefit-card {
             background: #F5F5F5;
-            padding: 8px;
-            border-radius: 5px;
+            padding: 4px;
+            border-radius: 3px;
             text-align: center;
             border: 1px solid #FFC107;
+            font-size: 6pt;
         }
         
         .benefit-number {
-            font-size: 12pt;
+            font-size: 8pt;
             font-weight: bold;
             color: #FF5722;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.1;
         }
         
         .benefit-text {
-            font-size: 7pt;
+            font-size: 5pt;
             color: #666;
-            margin-top: 2px;
+            margin-top: 1px;
+            line-height: 1.2;
         }
         
         .contact-box {
@@ -295,6 +316,7 @@ function generateComplete2PagePDF() {
         <img src="${window.location.origin}/logo.jpg" class="logo-img" alt="Logo" onerror="this.style.display='none'">
         <h1>BIRYANI FACTORY</h1>
         <p class="tagline">Crafted with Precision | Delivered with Passion</p>
+        <p style="margin-top: 5px; color: #FFC107; font-weight: bold; font-size: 11pt;">RECEPTION - 9, KITCHEN - 8, WHATSAPP - 9573 264 441</p>
     </div>
     
     <!-- Page 1: Complete Menu -->
@@ -303,7 +325,7 @@ function generateComplete2PagePDF() {
         
         <!-- Combos Section -->
         <div class="section">
-            <h3 class="section-title">🔥 EXCLUSIVE COMBOS (${menuData.combos ? menuData.combos.length : 0} items)</h3>
+            <h3 class="section-title">🔥 EXCLUSIVE COMBOS (${menuData.combos ? menuData.combos.filter(c => c.segment && ['tech', 'movie', 'party', 'family'].includes(c.segment)).length : 0} items)</h3>
             <div class="items-grid-2">
                 ${allCombos}
             </div>
@@ -336,59 +358,115 @@ function generateComplete2PagePDF() {
             </div>
         </div>
         
-        <h2 class="page-title" style="margin-top: 15px;">YOUR BIRYANI BENEFITS</h2>
+        <h2 class="page-title" style="margin-top: 10px;">NUTRITIONAL POWERHOUSE</h2>
+        <p style="text-align: center; font-size: 8pt; color: #00695C; margin-bottom: 5px; font-weight: bold;">PER STANDARD SERVING (150g Chicken + 150g Basmati Rice)</p>
         
-        <!-- Benefits Grid -->
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="benefit-number">0-30 min</div>
-                <div class="benefit-text">Instant Energy</div>
+        <!-- Main Macros -->
+        <div class="items-grid-2" style="margin-bottom: 10px;">
+            <div class="item" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border: 2px solid #FFC107; text-align: center;">
+                <div style="font-size: 28pt; font-weight: 900; color: #FF5722; font-family: 'Orbitron', sans-serif;">485</div>
+                <div style="font-size: 10pt; color: #00695C; font-weight: bold;">CALORIES</div>
+                <div style="font-size: 7pt; color: #666;">Balanced energy for your day</div>
+                <div style="font-size: 8pt; color: #00695C; margin-top: 3px;">24% of daily intake</div>
             </div>
-            <div class="benefit-card">
-                <div class="benefit-number">30-60 min</div>
-                <div class="benefit-text">Enhanced Focus</div>
+            <div class="item" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border: 2px solid #9c27b0; text-align: center;">
+                <div style="font-size: 28pt; font-weight: 900; color: #E91E63; font-family: 'Orbitron', sans-serif;">35</div>
+                <div style="font-size: 10pt; color: #00695C; font-weight: bold;">g PROTEIN</div>
+                <div style="font-size: 7pt; color: #666;">Builds lean muscle mass</div>
+                <div style="font-size: 8pt; color: #00695C; margin-top: 3px;">70% of daily needs</div>
             </div>
-            <div class="benefit-card">
-                <div class="benefit-number">1-3 hrs</div>
-                <div class="benefit-text">Peak Performance</div>
+            <div class="item" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2196F3; text-align: center;">
+                <div style="font-size: 28pt; font-weight: 900; color: #2196F3; font-family: 'Orbitron', sans-serif;">52</div>
+                <div style="font-size: 10pt; color: #00695C; font-weight: bold;">g CARBS</div>
+                <div style="font-size: 7pt; color: #666;">Sustained energy release</div>
+                <div style="font-size: 8pt; color: #00695C; margin-top: 3px;">17% of daily intake</div>
             </div>
-            <div class="benefit-card">
-                <div class="benefit-number">3-5 hrs</div>
-                <div class="benefit-text">Better Sleep</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">24/7</div>
-                <div class="benefit-text">Always Available</div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">4.8★</div>
-                <div class="benefit-text">Top Rated</div>
+            <div class="item" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border: 2px solid #9c27b0; text-align: center;">
+                <div style="font-size: 28pt; font-weight: 900; color: #9c27b0; font-family: 'Orbitron', sans-serif;">12</div>
+                <div style="font-size: 10pt; color: #00695C; font-weight: bold;">g FATS</div>
+                <div style="font-size: 7pt; color: #666;">Healthy cooking oils</div>
+                <div style="font-size: 8pt; color: #00695C; margin-top: 3px;">18% of daily intake</div>
             </div>
         </div>
         
-        <!-- Compact Savings -->
-        <div class="section">
-            <h3 class="section-title">💰 YOUR SAVINGS</h3>
-            <div class="savings-grid">
-                <div class="savings-item">
-                    <span class="savings-amount">₹61</span> - Deploy & Dine
-                </div>
-                <div class="savings-item">
-                    <span class="savings-amount">₹81</span> - Interval Feast
-                </div>
-                <div class="savings-item">
-                    <span class="savings-amount">₹141</span> - Post-Movie Pack
-                </div>
-                <div class="savings-item">
-                    <span class="savings-amount">₹151</span> - Sober Special
-                </div>
-                <div class="savings-item">
-                    <span class="savings-amount">₹121</span> - Family Feast
-                </div>
-                <div class="savings-item">
-                    <span class="savings-amount">₹201</span> - Hackathon Pack
-                </div>
+        <!-- Key Nutrients Grid -->
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-number" style="font-size: 14pt;">15%</div>
+                <div class="benefit-text">Daily Iron<br>Prevents anemia</div>
             </div>
+            <div class="benefit-card">
+                <div class="benefit-number" style="font-size: 14pt;">20%</div>
+                <div class="benefit-text">Vitamin B12<br>Energy metabolism</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number" style="font-size: 14pt;">25%</div>
+                <div class="benefit-text">Daily Zinc<br>Immunity boost</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number" style="font-size: 14pt;">3g</div>
+                <div class="benefit-text">Dietary Fiber<br>Digestive health</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number" style="font-size: 14pt;">35mcg</div>
+                <div class="benefit-text">Selenium<br>Antioxidant power</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number" style="font-size: 14pt;">2.5mg</div>
+                <div class="benefit-text">Phosphorus<br>Bone health</div>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-number">Metabolism Boost</div>
+                <div class="benefit-text">Spices increase metabolic rate by 20%</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">Anti-inflammatory</div>
+                <div class="benefit-text">Turmeric & ginger reduce inflammation</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">Digestive Health</div>
+                <div class="benefit-text">Cumin & coriander aid digestion</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">Heart Health</div>
+                <div class="benefit-text">Garlic & onions reduce cholesterol</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">Blood Sugar</div>
+                <div class="benefit-text">Cinnamon helps regulate glucose</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">Immunity</div>
+                <div class="benefit-text">127 spices with antimicrobial properties</div>
+            </div>
+
+
+            <div class="benefit-card">
+                <div class="benefit-number">Fresh Daily</div>
+                <div class="benefit-text">No overnight storage</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">FSSAI Certified</div>
+                <div class="benefit-text">Government approved kitchen</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">Halal Certified</div>
+                <div class="benefit-text">Religious compliance</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">Zero MSG</div>
+                <div class="benefit-text">No artificial flavor enhancers</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">No Preservatives</div>
+                <div class="benefit-text">100% natural ingredients</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">Hygiene 5★</div>
+                <div class="benefit-text">Hospital-grade cleanliness</div>
+            </div>
+
         </div>
         
         <!-- Why Order -->
@@ -430,6 +508,7 @@ function generateComplete2PagePDF() {
             <p style="margin-top: 5px; font-style: italic; font-size: 8pt;">
                 "From developer's midnight craving to CEO's board meeting - We deliver!"
             </p>
+            <p style="margin-top: 10px; color: #FFC107; font-weight: bold; font-size: 11pt;">RECEPTION - 9, KITCHEN - 8, WHATSAPP - 9573 264 441</p>
         </div>
     </div>
     

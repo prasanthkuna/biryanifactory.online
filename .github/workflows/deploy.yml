@@ -1,0 +1,69 @@
+name: Deploy Dual Sites to GitHub Pages
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies for old site
+        run: npm install
+        
+      - name: Install dependencies for modern site
+        working-directory: ./biryani-modern
+        run: npm ci
+        
+      - name: Build modern site
+        working-directory: ./biryani-modern
+        run: npm run build
+        env:
+          NODE_ENV: production
+          
+      - name: Build old site with Vite
+        run: npm run build
+        
+      - name: Create deployment directory structure
+        run: |
+          mkdir -p deploy_site
+          # Copy Vite build output
+          cp -r dist/* deploy_site/
+          # Create modern subdirectory and copy new site
+          mkdir -p deploy_site/modern
+          cp -r biryani-modern/dist/* deploy_site/modern/
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./deploy_site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
