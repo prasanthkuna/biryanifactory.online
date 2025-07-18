@@ -1,0 +1,19 @@
+{
+  "name": "biryani-factory-website",
+  "version": "1.0.0",
+  "description": "Biryani Factory - Best Dum Biryani in Hyderabad",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 public/logo.jpg"
+  },
+  "devDependencies": {
+    "@vite-pwa/assets-generator": "^0.2.6",
+    "vite": "^5.4.11",
+    "vite-imagetools": "^7.0.4",
+    "vite-plugin-pwa": "^0.21.3",
+    "workbox-window": "^7.1.0"
+  },
+  "type": "module"
+}

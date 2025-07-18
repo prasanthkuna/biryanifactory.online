@@ -26,9 +26,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: ./biryani-modern/package-lock.json
           
+      - name: Install dependencies for old site
+        run: npm install
+        
       - name: Install dependencies for modern site
         working-directory: ./biryani-modern
         run: npm ci
@@ -39,13 +40,14 @@ jobs:
         env:
           NODE_ENV: production
           
+      - name: Build old site with Vite
+        run: npm run build
+        
       - name: Create deployment directory structure
         run: |
           mkdir -p deploy_site
-          # Copy old site files to root
-          cp index.html app.js logo.jpg pdf-complete-2page.js deploy_site/
-          # Copy preview page
-          cp preview.html deploy_site/
+          # Copy Vite build output
+          cp -r dist/* deploy_site/
           # Create modern subdirectory and copy new site
           mkdir -p deploy_site/modern
           cp -r biryani-modern/dist/* deploy_site/modern/

@@ -324,5 +324,34 @@ window.downloadPDF = downloadPDF;
 // Make menuData globally accessible for PDF generation
 window.menuData = menuData;
 
+// Register PWA Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => console.log('PWA registered'))
+            .catch(error => console.log('PWA registration failed:', error));
+    });
+}
+
+// Web Vitals Monitoring
+if ('web-vitals' in window) {
+    const {onCLS, onFID, onLCP, onTTFB, onFCP} = window['web-vitals'];
+    function sendToAnalytics({name, delta, id}) {
+        console.log(`${name}: ${delta}`);
+        // Send to your analytics endpoint
+    }
+    onCLS(sendToAnalytics);
+    onFID(sendToAnalytics);
+    onLCP(sendToAnalytics);
+    onTTFB(sendToAnalytics);
+    onFCP(sendToAnalytics);
+}
+
+// Performance tracking
+const track = (event, data) => {
+    if (window.gtag) gtag('event', event, data);
+    performance.mark(`bf:${event}`);
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', renderMenu);
